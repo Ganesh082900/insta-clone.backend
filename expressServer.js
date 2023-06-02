@@ -7,13 +7,6 @@ const postRoute = require("./routes/posts")
 // handling cors error
 const cors = require('cors');
 
-const corsOptions = {
-    origin: 'https://instagram-clone-kr9g.onrender.com/post',
-    credentials: true,
-    optionSuccessStatus: 200
-}
-
-
 const app = express();
 const PORT = process.env.PORT || 8081
 
@@ -29,7 +22,7 @@ mongoose.connect("mongodb+srv://ganeshpendyala2000:nswCMvG0HAL7wjwY@cluster0.cyz
     })
 
 // app.use("/user", userRoute)
-app.use(cors(corsOptions));
+app.use(cors);
 app.use("/post", postRoute)
 
 app.use((req, res) => {
